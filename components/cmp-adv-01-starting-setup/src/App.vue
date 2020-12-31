@@ -1,17 +1,32 @@
 <template>
   <div>
+    <!-- either Pascal-case or kebab-case on the component tags eg: <TheHeader /> -->
     <the-header></the-header>
     <badge-list></badge-list>
     <user-info
-      :full-name="activeUser.name"
-      :info-text="activeUser.description"
-      :role="activeUser.role"
+        :full-name="activeUser.name"
+        :info-text="activeUser.description"
+        :role="activeUser.role"
     ></user-info>
   </div>
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue';
+import UserInfo from './components/UserInfo.vue';
+import BadgeList from './components/BadgeList.vue';
+
+
 export default {
+  components: {
+    // either this kebab-case
+    //'the-header': TheHeader,
+    //or Pascal-case
+    //TheHeader: TheHeader
+    TheHeader,
+    BadgeList,
+    UserInfo,
+  },
   data() {
     return {
       activeUser: {
