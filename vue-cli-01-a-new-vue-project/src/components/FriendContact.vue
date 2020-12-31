@@ -9,6 +9,7 @@
       <li>{{ phoneNumber }}</li>
       <li>{{ emailAddress }}</li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button>
   </li>
 </template>
 
@@ -47,7 +48,8 @@ export default {
     }
   },
   emits: [
-    'toggle-favourite'
+    'toggle-favourite',
+    'delete',
   ],
   /*emits: {
     'toggle-favourite': id => {
@@ -78,7 +80,11 @@ export default {
     // it is a custom event
     toggleFavourite() {
       this.$emit('toggle-favourite', this.id)
-    }
+    },
+    // you can creat custom events in methods or in the template
+    /*deleteFriend() {
+      this.$emit('delete-friend',)
+    }*/
   }
 }
 </script>
